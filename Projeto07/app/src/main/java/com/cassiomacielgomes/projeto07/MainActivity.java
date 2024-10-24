@@ -3,6 +3,7 @@ package com.cassiomacielgomes.projeto07;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 imagemApp.setImageResource(R.drawable.papel); //setImageResource == setText (só que com img ao invés de txt)
                 break;
             case "tesoura":
-                imagemApp.setImageResource(R.drawable.tesoura); //R é uma classe nativa do AndroidStudio que armazene ids informações etc.
+                imagemApp.setImageResource(R.drawable.tesoura);
                 break;
         }
 
@@ -61,6 +62,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void verificarGanhador(String escolhaUsuario){
-        System.out.println("Item clicado: " + escolhaUsuario);
+        //System.out.println("Item clicado: " + escolhaUsuario);
+
+        String escolhaApp = gerarEscolhaAleatoria();
+
+        TextView textoResultado = findViewById(R.id.textView_result);
+
+        if(//sistema ganhar(ou seja, usuario perder)
+                (escolhaApp =="pedra" && escolhaUsuario == "tesoura") ||
+                (escolhaApp == "papel" && escolhaUsuario == "pedra") ||
+                (escolhaApp == "tesoura" && escolhaUsuario == "papel")
+        ){
+            textoResultado.setText("Você Perdeu! :(");
+        }
+        else if (//Usuário ganhar
+                (escolhaApp =="tesoura" && escolhaUsuario == "pedra") ||
+                (escolhaApp == "pedra" && escolhaUsuario == "papel") ||
+                (escolhaApp == "papel" && escolhaUsuario == "tesoura")
+        ){
+            textoResultado.setText("Você Ganhou! :)");
+        }
+        else if (//Empate
+                (escolhaApp =="pedra" && escolhaUsuario == "pedra") ||
+                (escolhaApp == "papel" && escolhaUsuario == "papel") ||
+                (escolhaApp == "tesoura" && escolhaUsuario == "tesoura")
+        ){
+            textoResultado.setText("Empate :/");
+        }
+        else {
+            textoResultado.setText("Error");
+        }
     }
 }

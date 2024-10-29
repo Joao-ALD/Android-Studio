@@ -97,17 +97,55 @@ public class imcActivity extends AppCompatActivity {
             alerta.create();
             alerta.show();
         }
-        else if (imc >= 30 && imc < 18.5){
+        else if (imc >= 30 && imc < 35) {
             AlertDialog.Builder alerta = new AlertDialog.Builder(this);
 
             alerta.setTitle("Calculadora IMC");
-            alerta.setMessage("Seu IMC é de: "+ imc +" - MUITO ACIMA DO PESO");
+            alerta.setMessage("Seu IMC é de: " + imc + " - OBESIDADE I");
             alerta.setNeutralButton("OK", null);
 
             alerta.create();
             alerta.show();
         }
+        else if (imc >= 35 && imc < 40){
+            AlertDialog.Builder alerta = new AlertDialog.Builder(this);
 
+            alerta.setTitle("Calculadora IMC");
+            alerta.setMessage("Seu IMC é de: "+ imc +" - OBESIDADE II (Severa)");
+            alerta.setNeutralButton("OK", null);
+
+            alerta.create();
+            alerta.show();
+        }
+        else if (imc >= 40){
+            AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+
+            alerta.setTitle("Calculadora IMC");
+            alerta.setMessage("Seu IMC é de: "+ imc +" - OBESIDADE III (Mórbida)");
+            alerta.setNeutralButton("OK", null);
+
+            alerta.create();
+            alerta.show();
+        }
+        else{
+            AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+
+            alerta.setTitle("Calculadora IMC");
+            alerta.setMessage("ERRO");
+            alerta.setNeutralButton("OK", null);
+
+            alerta.create();
+            alerta.show();
+        }
+    }
+
+    public void limparIMC(View view){
+        edAltura.setText("");
+        edPeso.setText("");
+
+        peso = 0;
+        altura = 0;
+        imc = 0;
     }
 
 }

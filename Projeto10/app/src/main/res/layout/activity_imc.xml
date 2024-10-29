@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#8C8B8B"
-                android:onClick="limparMC"
+                android:onClick="limparIMC"
                 android:paddingTop="7dp"
                 android:paddingBottom="7dp"
                 android:text="Limpar"
